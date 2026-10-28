@@ -1,0 +1,61 @@
+---
+import LoopVideo from './LoopVideo.astro';
+import VideoToggle from './VideoToggle.astro';
+
+const clips = [
+  { name: 'pileta-grupo', label: 'Video: clase con tablas en la pileta cubierta de Atlantis', caption: 'Una tarde de clases', width: 720, height: 956 },
+  { name: 'actividad-colchonetas', label: 'Video: chicos jugando con colchonetas bajo el cartel de Atlantis', caption: 'Juegos en el agua', width: 720, height: 900 },
+  { name: 'colonia-inflable', label: 'Video: chicos de la colonia en un inflable al aire libre', caption: 'Colonia de verano', width: 720, height: 956 },
+];
+---
+<section class="moments" aria-labelledby="movimiento-title">
+  <div class="container">
+    <div class="head">
+      <h2 class="section-title" id="movimiento-title">Así se vive Atlantis</h2>
+      <VideoToggle />
+    </div>
+    <div class="scroller" aria-label="Videos de Atlantis" data-clip-scroller>
+      <ul class="clips" role="list">
+        {clips.map((c) => (
+          <li>
+            <figure>
+              <div class="frame"><LoopVideo name={c.name} label={c.label} width={c.width} height={c.height} /></div>
+              <figcaption>{c.caption}</figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .moments { padding: var(--section) 0; }
+  .head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+
+  .scroller { border-radius: var(--radius); }
+  .clips { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2.5vw, 2rem); margin: 0; padding: 0; list-style: none; }
+  figure { margin: 0; }
+  .frame { aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: var(--aqua-soft); }
+  .frame :global(video) { display: block; width: 100%; height: 100%; object-fit: cover; }
+  figcaption { margin-top: 0.85rem; font-weight: 700; color: var(--blue-ink); }
+
+  @media (max-width: 760px) {
+    .scroller { overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0.5rem; }
+    .clips { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%; }
+    .clips li { scroll-snap-align: start; }
+  }
+</style>
+
+<script>
+  // La fila de videos solo se desliza en pantallas chicas: ahí se vuelve una región enfocable con el teclado.
+  const scroller = document.querySelector<HTMLElement>('[data-clip-scroller]');
+  const narrow = window.matchMedia('(max-width: 760px)');
+  const sync = () => {
+    if (!scroller) return;
+    if (narrow.matches) { scroller.tabIndex = 0; scroller.setAttribute('role', 'region'); }
+    else { scroller.removeAttribute('tabindex'); scroller.removeAttribute('role'); }
+  };
+  narrow.addEventListener('change', sync);
+  sync();
+</script>

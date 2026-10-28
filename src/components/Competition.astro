@@ -1,0 +1,57 @@
+---
+import { photos, tournaments } from '../data/photos';
+import ContactButton from './ContactButton.astro';
+import Wave from './Wave.astro';
+import Photo from './Photo.astro';
+
+const { competition } = photos;
+---
+<section class="competition" id="competicion" aria-labelledby="competicion-title">
+  <Wave position="top" color="var(--sky)" />
+  <div class="container grid">
+    <div class="body">
+      <h2 id="competicion-title">También competimos.</h2>
+      <p>
+        Atlantis no es solo una escuela: forma nadadores que viajan a torneos. En octubre de 2024 fuimos una de las 14 instituciones del Torneo Aniversario 30 años del Club Atlético San Jorge, fiscalizado por la Federación Santafesina de Natación.
+      </p>
+      <p>¿Ya nada y quiere entrenar en serio? Consultanos por el grupo de competición.</p>
+      <ContactButton size="lg" message="Hola, quería consultar por el grupo de competición." />
+    </div>
+    <div class="photo">
+      <Photo photo={competition} sizes="(max-width: 900px) 100vw, 520px" widths={[600, 960]} />
+    </div>
+  </div>
+  <ul class="container strip" role="list">
+    {tournaments.map((t) => (
+      <li><Photo photo={t} sizes="(max-width: 760px) 50vw, 300px" widths={[400, 700]} /></li>
+    ))}
+  </ul>
+  <Wave position="bottom" color="var(--white)" />
+</section>
+
+<style>
+  .competition { position: relative; padding: calc(var(--section) + 2.5rem) 0 calc(var(--section) + 3rem); background: var(--blue); color: #fff; }
+  .grid { display: grid; grid-template-columns: 6fr 5fr; gap: clamp(2rem, 6vw, 5.5rem); align-items: center; }
+
+  h2 { font-size: clamp(2.1rem, 4.6vw, 3.5rem); font-weight: 800; }
+  .body { display: grid; gap: 1.25rem; justify-items: start; }
+  .body p { max-width: 36rem; font-size: clamp(1.0625rem, 1.6vw, 1.25rem); color: var(--on-blue-soft); }
+  .body p:first-of-type { margin-top: 0.25rem; }
+  .body :global(.contact-btn) { margin-top: 0.75rem; }
+
+  .photo { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; background: var(--blue-deep); }
+  .photo :global(img) { width: 100%; height: 100%; object-fit: cover; }
+
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.75rem, 1.6vw, 1.25rem); margin-top: clamp(2.5rem, 5vw, 4rem); padding: 0; list-style: none; }
+  .strip li { aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: var(--blue-deep); }
+  .strip :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  @media (max-width: 760px) {
+    .strip { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+    .photo { order: -1; }
+  }
+</style>

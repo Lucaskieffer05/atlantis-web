@@ -1,0 +1,138 @@
+---
+// Botón de consulta por WhatsApp: abre un menú para elegir a quién escribirle (Silvina o Camila).
+// El comportamiento (abrir, cerrar, WhatsApp Web en la computadora) vive en src/scripts/whatsapp.ts.
+import Icon from './Icon.astro';
+import { contacts, contactLink } from '../data/site';
+
+interface Props {
+  message: string;
+  label?: string;
+  size?: 'md' | 'lg';
+  variant?: 'button' | 'link' | 'fab';
+  align?: 'start' | 'end';
+  placement?: 'down' | 'up';
+  class?: string;
+}
+const { message, label = 'Consultar por WhatsApp', size = 'md', variant = 'button', align = 'start', placement = 'down', class: className } = Astro.props;
+const id = `wa-${Math.random().toString(36).slice(2, 8)}`;
+---
+<div class:list={['wa', `wa--${variant}`, `wa--${align}`, `wa--${placement}`, className]} data-wa>
+  <button
+    type="button"
+    class:list={variant === 'button' ? ['contact-btn', `contact-btn--${size}`] : variant === 'fab' ? ['fab-btn'] : ['link-btn']}
+    aria-expanded="false"
+    aria-controls={id}
+    aria-label={variant === 'fab' ? label : undefined}
+    data-wa-toggle
+  >
+    {variant !== 'link' && <Icon name="whatsapp" size={variant === 'fab' ? 28 : size === 'lg' ? 22 : 18} />}
+    {variant !== 'fab' && <span>{label}</span>}
+    {variant === 'link' && <Icon name="arrow" size={18} />}
+  </button>
+
+  <div class="menu" id={id} hidden data-wa-menu>
+    <p class="menu-title" id={`${id}-title`}>¿A quién le escribís?</p>
+    <ul role="list" aria-labelledby={`${id}-title`}>
+      {contacts.map((c) => (
+        <li>
+          <a href={contactLink(c.name, message)} target="_blank" rel="noopener">
+            <Icon name="whatsapp" size={20} />
+            <span class="who">{c.name}</span>
+            <span class="num">{c.display}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .wa { position: relative; display: inline-block; }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 48px;
+    width: 100%;
+    padding: 0 1.4rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--wa);
+    color: var(--wa-ink);
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 6px 18px -6px rgb(2 20 70 / 0.35);
+    transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background-color 0.2s;
+  }
+  .contact-btn--lg { min-height: 56px; padding: 0 1.75rem; font-size: 1.0625rem; }
+  .contact-btn:hover { background: var(--wa-hover); transform: translateY(-1px); box-shadow: 0 10px 24px -8px rgb(2 20 70 / 0.45); }
+  .contact-btn:active { transform: translateY(0) scale(0.98); }
+
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--blue);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .link-btn:hover span { text-decoration: underline; text-underline-offset: 0.2em; }
+  .link-btn :global(svg) { transition: transform 0.25s var(--ease-out); }
+  .link-btn:hover :global(svg), .link-btn[aria-expanded='true'] :global(svg) { transform: translateX(3px); }
+
+  .fab-btn {
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--wa);
+    color: var(--wa-ink);
+    cursor: pointer;
+    box-shadow: 0 10px 28px -8px rgb(2 20 70 / 0.5);
+  }
+
+  .menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    z-index: 50;
+    min-width: 15.5rem;
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--ink);
+    box-shadow: 0 18px 40px -16px rgb(10 26 63 / 0.45);
+  }
+  .menu[hidden] { display: none; }
+  .wa--end .menu { left: auto; right: 0; }
+  .wa--up .menu { top: auto; bottom: calc(100% + 0.5rem); }
+  .wa--fab .menu { top: auto; bottom: calc(100% + 0.75rem); right: 0; left: auto; }
+
+  .menu-title { padding: 0.25rem 0.5rem 0.5rem; font-size: 0.875rem; font-weight: 600; color: var(--ink-soft); }
+  .menu ul { display: grid; gap: 0.25rem; margin: 0; padding: 0; list-style: none; }
+  .menu a {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 48px;
+    padding: 0 0.75rem;
+    border-radius: 999px;
+    color: var(--blue-ink);
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  .menu a:hover { background: var(--sky); }
+  .menu a :global(svg) { color: var(--wa-hover); }
+  .who { font-weight: 700; }
+  .num { font-size: 0.875rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+</style>

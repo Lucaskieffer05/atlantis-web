@@ -1,0 +1,33 @@
+---
+// Pausa o reanuda todos los videos en bucle de la página. El estado lo maneja src/scripts/videos.ts.
+import Icon from './Icon.astro';
+
+interface Props { class?: string }
+const { class: className } = Astro.props;
+---
+<button class:list={['toggle', className]} type="button" data-state="playing" data-video-toggle>
+  <span class="icon icon--pause"><Icon name="pause" size={16} /></span>
+  <span class="icon icon--play"><Icon name="play" size={16} /></span>
+  <span data-video-toggle-label>Pausar videos</span>
+</button>
+
+<style>
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 44px;
+    padding: 0 1.1rem;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--blue-ink);
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .toggle:hover { border-color: var(--blue); color: var(--blue); }
+  .icon { display: inline-flex; }
+  .icon--play, [data-state='paused'] .icon--pause { display: none; }
+  [data-state='paused'] .icon--play { display: inline-flex; }
+</style>

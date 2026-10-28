@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Programs from '../components/Programs.astro';
+import Pool from '../components/Pool.astro';
+import Competition from '../components/Competition.astro';
+import Moments from '../components/Moments.astro';
+import River from '../components/River.astro';
+import Extras from '../components/Extras.astro';
+import Gallery from '../components/Gallery.astro';
+import Steps from '../components/Steps.astro';
+import Location from '../components/Location.astro';
+import Footer from '../components/Footer.astro';
+import FloatingContact from '../components/FloatingContact.astro';
+---
+<Base
+  title="Atlantis Escuela de Natación · San Carlos Centro"
+  description="Escuela de natación con pileta cubierta y climatizada en San Carlos Centro, Santa Fe. Natación para bebés, clases para chicos y adultos, aguas abiertas, colonia y grupo de competición."
+>
+  <Header />
+  <main id="contenido">
+    <Hero />
+    <Programs />
+    <Pool />
+    <Moments />
+    <River />
+    <Competition />
+    <Extras />
+    <Gallery />
+    <Steps />
+    <Location />
+  </main>
+  <Footer />
+  <FloatingContact />
+</Base>
+
+<script>
+  import '../scripts/motion';
+  import '../scripts/videos';
+  import '../scripts/whatsapp';
+</script>

@@ -1,0 +1,18 @@
+---
+// Video corto, mudo y en bucle. Se reproduce solo cuando está en pantalla y no hay pedido de reducir movimiento.
+interface Props { name: string; label: string; width: number; height: number; class?: string }
+const { name, label, width, height, class: className } = Astro.props;
+---
+<video
+  class={className}
+  src={`/videos/${name}.mp4`}
+  poster={`/videos/${name}.jpg`}
+  width={width}
+  height={height}
+  muted
+  loop
+  playsinline
+  preload="none"
+  aria-label={label}
+  data-loop-video
+></video>

@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo-solid.png';
+import { site, contacts, contactLink, defaultMessage } from '../data/site';
+import Icon from './Icon.astro';
+---
+<footer class="footer">
+  <div class="container grid">
+    <div class="brand">
+      <Image src={logo} alt="Atlantis" width={110} height={93} densities={[1, 2]} loading="lazy" />
+      <p>{site.name}<br />{site.address}, {site.city}</p>
+    </div>
+    <ul class="links" role="list">
+      {contacts.map((c) => (
+        <li><a href={contactLink(c.name, defaultMessage)} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> {c.name} · {c.display}</a></li>
+      ))}
+      <li><a href={site.instagram} target="_blank" rel="noopener"><Icon name="instagram" size={18} /> {site.instagramHandle}</a></li>
+      <li><a href={site.facebook} target="_blank" rel="noopener"><Icon name="facebook" size={18} /> Facebook</a></li>
+    </ul>
+  </div>
+  <p class="container legal">© {new Date().getFullYear()} {site.name}</p>
+</footer>
+
+<style>
+  .footer { padding: 4rem 0 2rem; background: var(--blue-ink); color: var(--on-blue-soft); }
+  .grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem; }
+  .brand { display: flex; align-items: center; gap: 1.25rem; }
+  .brand img { width: 96px; height: auto; }
+  .brand p { line-height: 1.5; }
+  .links { display: grid; gap: 0.25rem; margin: 0; padding: 0; list-style: none; }
+  .links a { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 44px; color: #fff; font-weight: 600; text-decoration: none; }
+  .links a:hover { text-decoration: underline; }
+  .legal { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgb(255 255 255 / 0.12); font-size: 0.875rem; color: var(--on-blue-soft); }
+</style>

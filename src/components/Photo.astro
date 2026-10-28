@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import type { Photo } from '../data/photos';
+
+interface Props {
+  photo: Photo;
+  sizes: string;
+  widths: number[];
+  eager?: boolean;
+  decorative?: boolean;
+  [key: `data-${string}`]: unknown;
+}
+const { photo, sizes, widths, eager = false, decorative = false, ...rest } = Astro.props;
+const alt = decorative ? '' : photo.alt;
+const style = photo.position ? `object-position: ${photo.position}` : undefined;
+---
+{typeof photo.src === 'string'
+  ? <img src={photo.src} alt={alt} width={photo.width} height={photo.height} loading={eager ? 'eager' : 'lazy'} decoding="async" style={style} {...rest} />
+  : <Image
+      src={photo.src}
+      alt={alt}
+      widths={widths.filter((w) => w <= photo.width)}
+      sizes={sizes}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : undefined}
+      style={style}
+      {...rest}
+    />}

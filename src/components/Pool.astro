@@ -1,0 +1,43 @@
+---
+import LoopVideo from './LoopVideo.astro';
+import VideoToggle from './VideoToggle.astro';
+
+---
+<section class="pool" id="pileta" aria-labelledby="pileta-title">
+  <div class="container grid">
+    <div class="media">
+      <div class="photo">
+        <LoopVideo name="entrenamiento-andariveles" label="Video: nadadores entrenando por andarivel en la pileta cubierta de Atlantis" width={720} height={400} />
+      </div>
+      <VideoToggle class="pool-toggle" />
+    </div>
+    <div class="body">
+      <h2 class="section-title" id="pileta-title">Afuera hace frío.<br /> Adentro, el agua está&nbsp;lista.</h2>
+      <p class="section-lead">En Atlantis la pileta es cubierta y climatizada, así que la natación no se corta en marzo: se aprende y se entrena los doce meses.</p>
+      <p class="note">Clases grupales guiadas por el equipo de instructores, para todas las edades y todos los niveles.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pool { padding: var(--section) 0; background: var(--sky); }
+  .grid { display: grid; grid-template-columns: 6fr 5fr; gap: clamp(2rem, 6vw, 5.5rem); align-items: center; }
+
+  .media { display: grid; gap: 1rem; justify-items: end; }
+  .photo { width: 100%; border-radius: var(--radius); overflow: hidden; aspect-ratio: 9 / 5; background: var(--aqua-soft); }
+  .photo :global(video) { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  .note {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    max-width: 30rem;
+    border-top: 2px solid var(--aqua);
+    font-size: 1.125rem; line-height: 1.5;
+    font-weight: 600;
+    color: var(--blue-ink);
+  }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

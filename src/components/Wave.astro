@@ -1,0 +1,14 @@
+---
+// Ola de transición entre secciones; `color` es el fondo de la sección vecina.
+interface Props { color: string; position: 'top' | 'bottom' }
+const { color, position } = Astro.props;
+---
+<svg class:list={['wave', `wave--${position}`]} viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" style={`color: ${color}`}>
+  <path d="M0 64c120 28 260 46 420 38s300-46 470-52 330 28 550 2v68H0Z" fill="currentColor" />
+</svg>
+
+<style>
+  .wave { position: absolute; left: 0; width: 100%; height: clamp(40px, 7vw, 100px); pointer-events: none; }
+  .wave--bottom { bottom: -1px; }
+  .wave--top { top: -1px; transform: scale(-1, -1); }
+</style>

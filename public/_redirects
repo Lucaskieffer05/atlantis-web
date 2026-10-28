@@ -1,0 +1,2 @@
+# La dirección de Netlify lleva siempre al dominio propio (evita contenido duplicado en Google).
+https://atlantis-natacion.netlify.app/* https://atlantisnatacion.com.ar/:splat 301!

@@ -1,0 +1,90 @@
+---
+import { gallery } from '../data/photos';
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+---
+<section class="gallery" aria-labelledby="galeria-title">
+  <div class="container head">
+    <h2 class="section-title" id="galeria-title">Más momentos</h2>
+    <div class="controls">
+      <button type="button" class="nav-btn nav-btn--prev" aria-controls="galeria-track" data-gallery-prev>
+        <span class="visually-hidden">Fotos anteriores</span><Icon name="arrow" size={20} />
+      </button>
+      <button type="button" class="nav-btn" aria-controls="galeria-track" data-gallery-next>
+        <span class="visually-hidden">Fotos siguientes</span><Icon name="arrow" size={20} />
+      </button>
+    </div>
+  </div>
+
+  <ul class="track" id="galeria-track" role="list" tabindex="0" aria-label="Galería de fotos de Atlantis" data-gallery-track>
+    {gallery.map((p) => (
+      <li class="slide">
+        <Photo photo={p} sizes="(max-width: 760px) 80vw, 420px" widths={[500, 900]} />
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .gallery { padding: 0 0 var(--section); overflow: hidden; }
+  .head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: clamp(1.75rem, 3vw, 2.5rem); }
+  .controls { display: flex; gap: 0.5rem; }
+  .nav-btn {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1.5px solid var(--line);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--blue-ink);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, opacity 0.2s;
+  }
+  .nav-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .nav-btn:disabled { opacity: 0.4; cursor: default; }
+  .nav-btn--prev :global(svg) { transform: scaleX(-1); }
+
+  .track {
+    --edge: max(var(--gutter), calc((100vw - var(--max)) / 2));
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: clamp(16rem, 30vw, 26rem);
+    gap: clamp(0.75rem, 1.6vw, 1.25rem);
+    margin: 0;
+    padding: 0 var(--edge) 0.75rem;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--edge);
+    scrollbar-width: thin;
+  }
+  .slide { aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: var(--aqua-soft); scroll-snap-align: start; }
+  .slide :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  @media (max-width: 760px) {
+    .track { grid-auto-columns: 78%; }
+  }
+</style>
+
+<script>
+  const track = document.querySelector<HTMLElement>('[data-gallery-track]');
+  const prev = document.querySelector<HTMLButtonElement>('[data-gallery-prev]');
+  const next = document.querySelector<HTMLButtonElement>('[data-gallery-next]');
+  if (track && prev && next) {
+    const step = () => (track.querySelector('li')?.getBoundingClientRect().width ?? 300) + 16;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const behavior = (): ScrollBehavior => (reduce.matches ? 'auto' : 'smooth');
+    const update = () => {
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      // Si el botón con foco se deshabilita al llegar a un extremo, el foco pasa al otro.
+      if (prev.disabled && document.activeElement === prev) next.focus();
+      if (next.disabled && document.activeElement === next) prev.focus();
+    };
+    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: behavior() }));
+    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: behavior() }));
+    track.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+</script>

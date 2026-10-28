@@ -1,0 +1,35 @@
+---
+import ContactButton from './ContactButton.astro';
+import { defaultMessage } from '../data/site';
+---
+<div class="fab" data-fab>
+  <ContactButton variant="fab" align="end" message={defaultMessage} />
+</div>
+
+<style>
+  .fab {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 30;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.9);
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out), visibility 0s linear 0.3s;
+  }
+  .fab.is-visible { opacity: 1; visibility: visible; transform: none; pointer-events: auto; transition-delay: 0s; }
+
+  @media (max-width: 860px) {
+    .fab { display: block; }
+  }
+</style>
+
+<script>
+  const fab = document.querySelector<HTMLElement>('[data-fab]');
+  const hero = document.querySelector('[data-hero]');
+  if (fab && hero) {
+    new IntersectionObserver(([entry]) => fab.classList.toggle('is-visible', !entry.isIntersecting)).observe(hero);
+  }
+</script>

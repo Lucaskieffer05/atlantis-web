@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-27T01:43:23+00:00",
+  "title": "Design System: Atlantis Escuela de Natación",
+  "extensions": {
+    "colorMeta": {
+      "blue": {
+        "role": "primary",
+        "displayName": "Azul Atlantis",
+        "canonical": "#023497",
+        "tonalRamp": [
+          "#0d1e40",
+          "#103277",
+          "#0d45b4",
+          "#0456f7",
+          "#437ef3",
+          "#81a6ef",
+          "#b9ccf2",
+          "#ebf0fa"
+        ]
+      },
+      "blue-deep": {
+        "role": "primary",
+        "displayName": "Azul Profundo",
+        "canonical": "#01226a",
+        "tonalRamp": [
+          "#0d1d40",
+          "#0f3077",
+          "#0c41b5",
+          "#0350f8",
+          "#427af4",
+          "#80a3f0",
+          "#b8caf2",
+          "#ebeffa"
+        ]
+      },
+      "blue-ink": {
+        "role": "primary",
+        "displayName": "Azul Tinta",
+        "canonical": "#0a1a3f",
+        "tonalRamp": [
+          "#131f39",
+          "#1d346a",
+          "#22489f",
+          "#235ad8",
+          "#5981dd",
+          "#8fa8e1",
+          "#c0cdea",
+          "#edf0f8"
+        ]
+      },
+      "aqua": {
+        "role": "secondary",
+        "displayName": "Aguamarina",
+        "canonical": "#22b8cf",
+        "tonalRamp": [
+          "#133439",
+          "#1d5f6a",
+          "#238e9e",
+          "#24bfd7",
+          "#5acbdc",
+          "#8fd6e1",
+          "#c0e5ea",
+          "#edf6f8"
+        ]
+      },
+      "aqua-soft": {
+        "role": "secondary",
+        "displayName": "Aguamarina Suave",
+        "canonical": "#e6f6f9",
+        "tonalRamp": [
+          "#163136",
+          "#235a64",
+          "#2c8595",
+          "#31b2ca",
+          "#63c1d2",
+          "#95d0db",
+          "#c3e1e7",
+          "#eef5f7"
+        ]
+      },
+      "wa": {
+        "role": "tertiary",
+        "displayName": "Verde WhatsApp",
+        "canonical": "#25d366",
+        "tonalRamp": [
+          "#143922",
+          "#1e693a",
+          "#249d51",
+          "#26d568",
+          "#5bda8b",
+          "#90e0ae",
+          "#c1ead0",
+          "#edf8f1"
+        ]
+      },
+      "wa-hover": {
+        "role": "tertiary",
+        "displayName": "Verde WhatsApp Hover",
+        "canonical": "#1fc15b",
+        "tonalRamp": [
+          "#133921",
+          "#1d6a39",
+          "#229f50",
+          "#23d866",
+          "#59dc8a",
+          "#8fe1ad",
+          "#c0ead0",
+          "#edf8f1"
+        ]
+      },
+      "wa-ink": {
+        "role": "tertiary",
+        "displayName": "Tinta WhatsApp",
+        "canonical": "#05301a",
+        "tonalRamp": [
+          "#113c26",
+          "#186e42",
+          "#1ba65f",
+          "#18e37b",
+          "#51e499",
+          "#8ae6b7",
+          "#bdedd5",
+          "#ecf8f2"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7e7e7e",
+          "#9b9b9b",
+          "#b8b8b8",
+          "#d5d5d5",
+          "#f2f2f2"
+        ]
+      },
+      "sky": {
+        "role": "neutral",
+        "displayName": "Cielo",
+        "canonical": "#f2f7fb",
+        "tonalRamp": [
+          "#182834",
+          "#274760",
+          "#33668e",
+          "#3c85c0",
+          "#6ba0cb",
+          "#9abbd6",
+          "#c6d7e5",
+          "#eef3f6"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "#0f1b33",
+        "tonalRamp": [
+          "#182135",
+          "#263a60",
+          "#32518f",
+          "#3a67c2",
+          "#698acc",
+          "#99aed7",
+          "#c5d0e5",
+          "#eef1f6"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Tinta Suave",
+        "canonical": "#44506a",
+        "tonalRamp": [
+          "#21242c",
+          "#383f4f",
+          "#4e5a73",
+          "#627499",
+          "#8794af",
+          "#acb3c4",
+          "#cfd3db",
+          "#f1f2f4"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Línea",
+        "canonical": "#d9e2ec",
+        "tonalRamp": [
+          "#1e262f",
+          "#324255",
+          "#445f7d",
+          "#547ba7",
+          "#7d99b9",
+          "#a5b7cb",
+          "#cbd5df",
+          "#f0f2f5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Solo el titular de la portada, en blanco sobre la foto con velo."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de sección; blue-ink sobre claro, blanco sobre la franja azul."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Título de cada tarjeta de clase."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Títulos de los pasos y nombre Atlantis en la barra."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Bajadas debajo de los títulos de sección, hasta 38rem."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido en ink o ink-soft."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Botones, enlaces de acción y chips."
+      }
+    },
+    "shadows": [
+      {
+        "name": "contact-rest",
+        "value": "0 6px 18px -6px rgb(2 20 70 / 0.35)",
+        "purpose": "Botones de contacto en reposo."
+      },
+      {
+        "name": "contact-hover",
+        "value": "0 10px 24px -8px rgb(2 20 70 / 0.45)",
+        "purpose": "Botones de contacto en hover, junto con translateY(-1px)."
+      },
+      {
+        "name": "card",
+        "value": "0 18px 40px -24px rgb(10 26 63 / 0.45)",
+        "purpose": "Tarjetas de clase que cruzan la ola."
+      },
+      {
+        "name": "header-solid",
+        "value": "0 6px 24px -14px rgb(10 26 63 / 0.35)",
+        "purpose": "Barra de navegación en estado sólido."
+      },
+      {
+        "name": "fab",
+        "value": "0 10px 28px -8px rgb(2 20 70 / 0.5)",
+        "purpose": "Botón flotante de contacto en móvil."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Easing de toda transición CSS (--ease-out)."
+      },
+      {
+        "name": "gsap-ease",
+        "value": "expo.out",
+        "purpose": "Easing de las entradas con GSAP."
+      },
+      {
+        "name": "state-fast",
+        "value": "0.2s",
+        "purpose": "Hover de botones, chips y navegación."
+      },
+      {
+        "name": "state-medium",
+        "value": "0.3s",
+        "purpose": "Cambio de la barra a sólida y aparición del botón flotante."
+      },
+      {
+        "name": "photo-zoom",
+        "value": "0.6s",
+        "purpose": "Escala 1.04 de la foto de tarjeta en hover."
+      },
+      {
+        "name": "hero-entrance",
+        "value": "img scale 1.08→1 en 2.2s; líneas y:28 autoAlpha:0 en 1s, stagger 0.09",
+        "purpose": "Entrada de la portada, solo con prefers-reduced-motion: no-preference."
+      },
+      {
+        "name": "reveal",
+        "value": "y:32 autoAlpha:0 en 0.9s, stagger 0.08, start top 88%, once",
+        "purpose": "Aparición de tarjetas y pasos al entrar en pantalla (ScrollTrigger.batch)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "400px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "steps",
+        "value": "760px"
+      },
+      {
+        "name": "nav",
+        "value": "860px"
+      },
+      {
+        "name": "md",
+        "value": "900px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón de contacto (teléfono)",
+      "kind": "button",
+      "refersTo": "button-contact-phone",
+      "description": "Contacto principal mientras WHATSAPP es null: llama al fijo.",
+      "html": "<a class=\"ds-contact ds-contact--phone\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/></svg><span>Llamar a la escuela</span></a>",
+      "css": ".ds-contact { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 48px; padding: 0 1.4rem; border-radius: 999px; font-family: var(--font); font-size: 1.0625rem; font-weight: 700; text-decoration: none; white-space: nowrap; box-shadow: 0 6px 18px -6px rgb(2 20 70 / 0.35); transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s; } .ds-contact--phone { background: var(--aqua, #22b8cf); color: var(--blue-ink, #0a1a3f); } .ds-contact--phone:hover { background: #3cc6db; } .ds-contact:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -8px rgb(2 20 70 / 0.45); } .ds-contact:active { transform: translateY(0) scale(0.98); } .ds-contact:focus-visible { outline: 3px solid var(--aqua, #22b8cf); outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón de contacto (WhatsApp)",
+      "kind": "button",
+      "refersTo": "button-contact-whatsapp",
+      "description": "Contacto principal cuando hay número de WhatsApp cargado.",
+      "html": "<a class=\"ds-contact-wa\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.9A11.82 11.82 0 0 0 12.05 0Zm0 21.79a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 5.45 0 9.88 4.43 9.88 9.89 0 5.45-4.44 9.88-9.89 9.88Z\"/></svg><span>Consultar por WhatsApp</span></a>",
+      "css": ".ds-contact-wa { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 48px; padding: 0 1.4rem; border-radius: 999px; background: var(--wa, #25d366); color: var(--wa-ink, #05301a); font-family: var(--font); font-size: 1.0625rem; font-weight: 700; text-decoration: none; box-shadow: 0 6px 18px -6px rgb(2 20 70 / 0.35); transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s; } .ds-contact-wa:hover { background: var(--wa-hover, #1fc15b); transform: translateY(-1px); box-shadow: 0 10px 24px -8px rgb(2 20 70 / 0.45); } .ds-contact-wa:active { transform: translateY(0) scale(0.98); } .ds-contact-wa:focus-visible { outline: 3px solid var(--aqua, #22b8cf); outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón fantasma sobre foto",
+      "kind": "button",
+      "refersTo": "button-ghost-on-photo",
+      "description": "Secundario «Ver clases» sobre la portada azul.",
+      "html": "<div class=\"ds-ghost-stage\"><a class=\"ds-ghost\" href=\"#\">Ver clases <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div>",
+      "css": ".ds-ghost-stage { padding: 1.5rem; background: var(--blue-deep, #01226a); } .ds-ghost { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 56px; padding: 0 1.5rem; border-radius: 999px; border: 1.5px solid rgb(255 255 255 / 0.7); color: #fff; font-family: var(--font); font-weight: 700; font-size: 1.0625rem; text-decoration: none; transition: background-color 0.2s, border-color 0.2s; } .ds-ghost:hover { background: rgb(255 255 255 / 0.12); border-color: #fff; } .ds-ghost svg { transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-ghost:hover svg { transform: translateX(3px); } .ds-ghost:focus-visible { outline: 3px solid var(--aqua, #22b8cf); outline-offset: 3px; }"
+    },
+    {
+      "name": "Chip social",
+      "kind": "chip",
+      "refersTo": "chip-social",
+      "description": "Enlaces a Instagram y Facebook en «Dónde estamos».",
+      "html": "<a class=\"ds-chip\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"20\" height=\"20\" x=\"2\" y=\"2\" rx=\"5\" ry=\"5\"/><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"/><path d=\"M17.5 6.5h.01\"/></svg> Instagram</a>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; padding: 0 1.1rem; border: 1.5px solid var(--line, #d9e2ec); border-radius: 999px; background: var(--white, #fff); color: var(--blue-ink, #0a1a3f); font-family: var(--font); font-weight: 700; text-decoration: none; transition: border-color 0.2s, color 0.2s; } .ds-chip:hover { border-color: var(--blue, #023497); color: var(--blue, #023497); } .ds-chip:focus-visible { outline: 3px solid var(--aqua, #22b8cf); outline-offset: 3px; }"
+    },
+    {
+      "name": "Tarjeta de clase",
+      "kind": "card",
+      "refersTo": "card-program",
+      "description": "Chicos / Adultos / Competición: foto 4:3, título, texto y enlace de acción.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-photo\"></div><div class=\"ds-card-body\"><h3>Chicos</h3><p>Del primer contacto con el agua a nadar solos. Clases grupales con instructores, en agua climatizada.</p><a class=\"ds-card-link\" href=\"#\">Llamar para consultar <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div></article>",
+      "css": ".ds-card { display: flex; flex-direction: column; max-width: 22rem; border-radius: 16px; background: var(--white, #fff); box-shadow: 0 18px 40px -24px rgb(10 26 63 / 0.45); overflow: hidden; font-family: var(--font); } .ds-card-photo { aspect-ratio: 4 / 3; background: linear-gradient(160deg, var(--aqua, #22b8cf), var(--blue, #023497)); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); } .ds-card-body { display: flex; flex-direction: column; gap: 0.75rem; padding: 1.5rem 1.5rem 1.75rem; } .ds-card h3 { margin: 0; font-size: 1.75rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; color: var(--blue-ink, #0a1a3f); } .ds-card p { margin: 0; font-size: 1.0625rem; line-height: 1.6; color: var(--ink-soft, #44506a); } .ds-card-link { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 44px; padding-top: 0.75rem; color: var(--blue, #023497); font-weight: 700; text-decoration: none; } .ds-card-link:hover { text-decoration: underline; } .ds-card-link svg { transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-card-link:hover svg { transform: translateX(3px); } .ds-card-link:focus-visible { outline: 3px solid var(--aqua, #22b8cf); outline-offset: 3px; }"
+    },
+    {
+      "name": "Barra de navegación (sólida)",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Barra fija en estado sólido, tras dejar la portada.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\"><strong>Atlantis</strong><span>Escuela de Natación</span></a><nav><a href=\"#\">Clases</a><a href=\"#\">La pileta</a><a href=\"#\">Competición</a><a href=\"#\">Dónde estamos</a></nav></header>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 2rem; height: 4.75rem; padding: 0 1.5rem; background: rgb(255 255 255 / 0.97); color: var(--blue-ink, #0a1a3f); box-shadow: 0 6px 24px -14px rgb(10 26 63 / 0.35); font-family: var(--font); } .ds-nav-brand { display: grid; text-decoration: none; color: inherit; font-weight: 600; font-size: 0.8125rem; line-height: 1.2; } .ds-nav-brand strong { font-size: 1.375rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; } .ds-nav nav { display: flex; gap: 0.25rem; margin-left: auto; } .ds-nav nav a { padding: 0.6rem 0.9rem; border-radius: 999px; color: inherit; font-weight: 600; text-decoration: none; transition: background-color 0.2s; } .ds-nav nav a:hover { background: var(--sky, #f2f7fb); } .ds-nav a:focus-visible { outline: 3px solid var(--aqua, #22b8cf); outline-offset: 3px; }"
+    },
+    {
+      "name": "Paso numerado",
+      "kind": "custom",
+      "refersTo": "step-number",
+      "description": "Cada uno de los tres pasos de «Empezar es fácil».",
+      "html": "<div class=\"ds-step\"><span class=\"ds-step-num\" aria-hidden=\"true\">1</span><h3>Llamanos</h3><p>Contanos quién quiere nadar, qué edad tiene y si ya sabe algo.</p></div>",
+      "css": ".ds-step { display: grid; gap: 0.6rem; max-width: 22rem; padding-top: 1.5rem; border-top: 2px solid var(--line, #d9e2ec); font-family: var(--font); } .ds-step-num { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 0.5rem; border-radius: 50%; background: var(--aqua-soft, #e6f6f9); color: var(--blue, #023497); font-weight: 800; font-size: 1.125rem; font-variant-numeric: tabular-nums; } .ds-step h3 { margin: 0; font-size: 1.375rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.015em; color: var(--blue-ink, #0a1a3f); } .ds-step p { margin: 0; line-height: 1.6; color: var(--ink-soft, #44506a); }"
+    },
+    {
+      "name": "Ola de transición",
+      "kind": "custom",
+      "refersTo": "wave",
+      "description": "Única transición entre secciones de distinto fondo; se pinta del color vecino.",
+      "html": "<div class=\"ds-wave-stage\"><svg class=\"ds-wave\" viewBox=\"0 0 1440 120\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M0 64c120 28 260 46 420 38s300-46 470-52 330 28 550 2v68H0Z\" fill=\"currentColor\"/></svg></div>",
+      "css": ".ds-wave-stage { position: relative; height: 160px; background: var(--blue, #023497); } .ds-wave { position: absolute; left: 0; bottom: -1px; width: 100%; height: clamp(40px, 7vw, 100px); color: var(--white, #fff); }"
+    },
+    {
+      "name": "Botón flotante de contacto",
+      "kind": "button",
+      "refersTo": "fab-contact",
+      "description": "Solo en móvil, aparece al salir de la portada; toma el color del canal.",
+      "html": "<a class=\"ds-fab\" href=\"#\" aria-label=\"Llamar a la escuela\"><svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/></svg></a>",
+      "css": ".ds-fab { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: var(--aqua, #22b8cf); color: var(--blue-ink, #0a1a3f); box-shadow: 0 10px 28px -8px rgb(2 20 70 / 0.5); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-fab:hover { transform: translateY(-2px); } .ds-fab:focus-visible { outline: 3px solid var(--aqua, #22b8cf); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El natatorio bien terminado",
+    "overview": "El sistema es el estándar del rubro hecho con oficio: foto real grande, mensaje claro y el contacto siempre a mano. No busca un truco conceptual; gana por claridad, calidez y terminación. La página es solo clara (`color-scheme: light`), pensada para familias de San Carlos Centro que la miran en el teléfono, con buena luz y apuro: todo se lee de un vistazo y el botón de contacto nunca queda lejos.\n\nEl mundo sale del logo: blanco limpio con el azul `blue` en franjas de sección y en el texto de acción, aguamarina como la luz del agua y una sola sans de trabajo, autoalojada, con display en peso alto. Las fotos son de la escuela real, en esquinas de 16px, y la ola es la única transición entre secciones de distinto fondo. La densidad es holgada: secciones con mucho aire vertical, columnas de texto angostas, una idea por bloque.\n\nEl canal de contacto es un estado del sistema, no un color fijo. Mientras `WHATSAPP` sea `null` en `src/data/site.ts`, todos los botones de contacto usan la variante teléfono en aguamarina («Llamar a la escuela»); cuando se carga un número pasan al verde WhatsApp con tinta oscura. El resto del sistema no cambia.",
+    "keyCharacteristics": [
+      "Blanco de base, azul del logo en franjas completas y aguamarina como luz.",
+      "Una sola familia tipográfica (Figtree Variable) con titulares en 800 y tracking negativo.",
+      "Fotos reales de Atlantis en esquinas de 16px; la portada a sangre con velo azul desde la izquierda.",
+      "Ola SVG como única transición entre fondos.",
+      "Botones en píldora; el contacto lleva sombra azulada, el resto es plano.",
+      "Movimiento corto con `expo.out`, siempre condicionado a `prefers-reduced-motion`."
+    ],
+    "rules": [
+      {
+        "name": "The Un Solo Verde Rule",
+        "body": "El verde WhatsApp existe solo en la acción de contacto y solo cuando hay número cargado. Sin número, el contacto es aguamarina; nunca aparece verde decorativo.",
+        "section": "colors"
+      },
+      {
+        "name": "The Franja Completa Rule",
+        "body": "El azul de marca ocupa franjas de ancho completo (portada, Competición, pie) o texto de acción; no se usa en recuadros sueltos ni en fondos de tarjeta.",
+        "section": "colors"
+      },
+      {
+        "name": "The Texto Claro Sobre Azul Rule",
+        "body": "Sobre franjas azules el texto es blanco o un azul muy claro; los titulares sobre fondo claro son siempre `blue-ink`, nunca `blue`.",
+        "section": "colors"
+      },
+      {
+        "name": "The Una Familia Rule",
+        "body": "Todo el sitio va en Figtree Variable; la jerarquía se arma con peso (400 / 600 / 700 / 800) y tamaño, no con una segunda fuente.",
+        "section": "typography"
+      },
+      {
+        "name": "The Titular Apretado Rule",
+        "body": "Todo h1–h3 lleva tracking negativo (-0.015em a -0.035em), interlínea cerca de 1 y `text-wrap: balance`. Los párrafos llevan `text-wrap: pretty`.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sombra Marina Rule",
+        "body": "Toda sombra es difusa, con spread negativo y teñida de `rgb(2 20 70)` o `rgb(10 26 63)`. Ni sombras negras ni sombras desplazadas sin desenfoque.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do derivar el color de cada botón de contacto de `contact()` en `src/data/site.ts`: aguamarina con «Llamar a la escuela» mientras `WHATSAPP` sea `null`, verde `wa` con tinta `wa-ink` cuando haya número.",
+      "Do usar fotos reales de Atlantis en marcos de 16px, con `object-position` ajustado por foto.",
+      "Do separar secciones de distinto fondo con la ola, pintada del color de la sección vecina.",
+      "Do escribir los titulares en Figtree 800 con tracking negativo y `blue-ink` sobre claro.",
+      "Do mantener píldora para lo táctil y 16px para lo que contiene, con objetivos de 44px como mínimo.",
+      "Do condicionar toda animación a `prefers-reduced-motion: no-preference` y usar `expo.out` / `cubic-bezier(0.16, 1, 0.3, 1)`.",
+      "Do mostrar el anillo de foco aguamarina de 3px con 3px de separación en todo elemento interactivo."
+    ],
+    "donts": [
+      "Don't usar el verde WhatsApp fuera del botón de contacto, ni pintar de verde un botón que llama por teléfono.",
+      "Don't usar fotos de stock: la de Adultos es provisoria y se reemplaza por una propia.",
+      "Don't agregar modo oscuro: la página es solo clara.",
+      "Don't usar sombras negras, duras o desplazadas sin desenfoque.",
+      "Don't sumar una segunda familia tipográfica ni usar fuentes del sistema como display.",
+      "Don't poner sobretítulos o etiquetas en mayúsculas encima de los títulos de sección.",
+      "Don't usar degradés decorativos: el único degradé del sistema es el velo sobre la foto de portada."
+    ]
+  }
+}

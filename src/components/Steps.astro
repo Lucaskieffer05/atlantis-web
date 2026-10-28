@@ -1,0 +1,52 @@
+---
+import { site, contactVerb } from '../data/site';
+import ContactButton from './ContactButton.astro';
+
+const steps = [
+  { title: contactVerb, text: 'Contanos quién quiere nadar, qué edad tiene y si ya sabe algo.' },
+  { title: 'Te pasamos horarios y cuotas', text: 'Te decimos qué grupo le corresponde y qué días hay lugar.' },
+  { title: 'Al agua', text: `Te esperamos en ${site.address}, San Carlos Centro.` },
+];
+---
+<section class="steps" aria-labelledby="empezar-title">
+  <div class="container">
+    <h2 class="section-title" id="empezar-title">Empezar es fácil</h2>
+    <ol class="list">
+      {steps.map((s, i) => (
+        <li>
+          <span class="num" aria-hidden="true">{i + 1}</span>
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ol>
+    <ContactButton size="lg" message="Hola, quería consultar por las clases de natación." />
+  </div>
+</section>
+
+<style>
+  .steps { padding: var(--section) 0; background: var(--sky); }
+  .steps .container { display: grid; gap: clamp(2.5rem, 5vw, 3.5rem); justify-items: start; }
+
+  .list { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 4vw, 3rem); width: 100%; margin: 0; padding: 0; list-style: none; counter-reset: none; }
+  .list li { display: grid; gap: 0.6rem; align-content: start; padding-top: 1.5rem; border-top: 2px solid var(--line); }
+  .num {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0.5rem;
+    border-radius: 50%;
+    background: var(--aqua-soft);
+    color: var(--blue);
+    font-weight: 800;
+    font-size: 1.125rem;
+    font-variant-numeric: tabular-nums;
+  }
+  h3 { font-size: 1.375rem; font-weight: 800; color: var(--blue-ink); letter-spacing: -0.015em; }
+  .list p { color: var(--ink-soft); max-width: 22rem; }
+
+  @media (max-width: 760px) {
+    .list { grid-template-columns: 1fr; }
+  }
+</style>

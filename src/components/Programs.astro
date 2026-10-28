@@ -1,0 +1,87 @@
+---
+import { photos, type Photo } from '../data/photos';
+import { contactVerb } from '../data/site';
+import ContactButton from './ContactButton.astro';
+import Photo from './Photo.astro';
+
+type Program = { id: string; title: string; text: string; photo: Photo; message: string };
+
+const programs: Program[] = [
+  {
+    id: 'chicos',
+    title: 'Chicos y bebés',
+    text: 'Natación para bebés y clases para chicos: del primer contacto con el agua a nadar solos, con instructores y en agua climatizada.',
+    photo: photos.kids,
+    message: 'Hola, quería consultar por la natación para bebés y las clases para chicos.',
+  },
+  {
+    id: 'adultos',
+    title: 'Adultos',
+    text: 'Para aprender de cero, mejorar la técnica, entrenar con rutinas o sumarse a la gimnasia en el agua.',
+    photo: photos.adults,
+    message: 'Hola, quería consultar por las clases de natación para adultos.',
+  },
+  {
+    id: 'competicion-grupo',
+    title: 'Competición',
+    text: 'Entrenamiento para nadadores que quieren competir en torneos fiscalizados por la Federación Santafesina de Natación.',
+    photo: photos.race,
+    message: 'Hola, quería consultar por el grupo de competición.',
+  },
+];
+---
+<section class="programs" id="clases" aria-labelledby="clases-title">
+  <div class="container">
+    <h2 class="visually-hidden" id="clases-title">Clases para cada etapa</h2>
+
+    <ul class="list" role="list">
+      {programs.map((p) => {
+        return (
+          <li class="program" id={p.id} data-reveal>
+            <div class="program-photo">
+              <Photo photo={p.photo} sizes="(max-width: 900px) 100vw, 400px" widths={[480, 800, 1200]} eager />
+            </div>
+            <div class="program-body">
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+              <ContactButton class="program-link" variant="link" placement="up" label={`Consultar por ${p.title.toLowerCase()}`} message={p.message} />
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+
+    <p class="foot">Todas las edades y todos los niveles. {contactVerb} y te contamos horarios y cuotas según la edad y la experiencia de cada uno.</p>
+  </div>
+</section>
+
+<style>
+  .programs { position: relative; z-index: 1; margin-top: -9.5rem; padding-bottom: var(--section); }
+  .foot { margin-top: clamp(1.75rem, 3vw, 2.5rem); max-width: 46rem; font-size: 1.0625rem; color: var(--ink-soft); }
+
+  .list { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2.5vw, 2rem); margin: 0; padding: 0; list-style: none; }
+
+  .program {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: 0 18px 40px -24px rgb(10 26 63 / 0.45);
+    scroll-margin-top: 6rem;
+  }
+  .program-photo { aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius) var(--radius) 0 0; background: var(--aqua-soft); }
+  .program-photo :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease-out); }
+  .program:hover .program-photo :global(img) { transform: scale(1.04); }
+
+  .program-body { display: flex; flex-direction: column; gap: 0.75rem; flex: 1; padding: 1.5rem 1.5rem 1.75rem; }
+  h3 { font-size: 1.75rem; font-weight: 800; color: var(--blue-ink); }
+  .program-body p { color: var(--ink-soft); }
+
+  .program-body :global(.program-link) { margin-top: auto; padding-top: 0.75rem; }
+
+  @media (max-width: 900px) {
+    .programs { margin-top: -3rem; }
+    .list { grid-template-columns: 1fr; max-width: 34rem; }
+    .program { display: grid; grid-template-columns: 1fr; }
+  }
+</style>
