@@ -8,7 +8,7 @@ import Photo from './Photo.astro';
 const { hero } = photos;
 ---
 <section class="hero" id="inicio" data-hero>
-  <div class="hero-media" aria-hidden="true">
+  <div class="hero-media" aria-hidden="true" data-hero-media>
     <Photo photo={hero} sizes="100vw" widths={[800, 1280, 1600, 2048]} eager decorative data-hero-img />
   </div>
 
@@ -49,6 +49,9 @@ const { hero } = photos;
   }
 
   .hero-media { position: absolute; inset: 0; z-index: -1; }
+  /* Durante la intro del logo la portada queda en azul; la foto y los textos entran después (scripts/motion.ts). */
+  :global(.logo-intro-on) .hero-media,
+  :global(.logo-intro-on) [data-hero-line] { opacity: 0; }
   .hero-media :global(img) { width: 100%; height: 100%; object-fit: cover; }
   .hero-media::after {
     content: '';

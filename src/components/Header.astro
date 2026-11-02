@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/logo-badge.png';
+import LogoVector from '../assets/logo.svg';
 import Icon from './Icon.astro';
 import ContactButton from './ContactButton.astro';
 
@@ -12,10 +13,18 @@ const links = [
   { href: '#ubicacion', label: 'Dónde estamos' },
 ];
 ---
+<script is:inline>
+  // Antes de pintar la portada: oculta foto, textos y logo del header para la intro (ver scripts/motion.ts).
+  // Si el JS principal no llega a correr, a los 6 s todo se muestra igual.
+  if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('logo-intro-on');
+    window.logoIntroFallback = setTimeout(() => document.documentElement.classList.remove('logo-intro-on'), 6000);
+  }
+</script>
 <header class="site-header" data-header>
   <div class="bar container">
     <a class="brand" href="#inicio" aria-label="Atlantis Escuela de Natación, inicio">
-      <Image src={logo} alt="" width={64} height={55} densities={[1, 2]} loading="eager" />
+      <Image src={logo} alt="" width={64} height={55} densities={[1, 2]} loading="eager" data-logo-target />
       <span class="brand-name"><strong>Atlantis</strong> Escuela de Natación</span>
     </a>
 
@@ -39,6 +48,13 @@ const links = [
       {links.map((l) => <li><a href={l.href} data-menu-link>{l.label}</a></li>)}
     </ul>
   </div>
+
+  <div class="logo-intro" aria-hidden="true" data-logo-intro>
+    <div class="logo-mark" data-logo-mark>
+      <LogoVector />
+      <Image src={logo} alt="" width={420} densities={[1, 2]} loading="lazy" />
+    </div>
+  </div>
 </header>
 
 <style>
@@ -61,6 +77,29 @@ const links = [
   .brand { display: flex; flex: none; align-items: center; gap: 0.85rem; text-decoration: none; }
   .brand img { width: 60px; height: auto; transform-origin: left center; transition: transform 0.3s var(--ease-out); }
   .is-solid .brand img { transform: scale(0.9); }
+  :global(.logo-intro-on) .brand img { opacity: 0; }
+
+  /* Intro: el logo se arma en grande y después viaja al lugar del logo del header.
+     Se centra en la parte azul libre de la portada: entre la barra y las tarjetas de clases, que suben
+     9.5rem sobre ella (Programs.astro; por debajo de 900px manda la ola de Hero.astro). Su alto se limita
+     a esa zona, para no tapar lo que sigue en pantallas bajas. */
+  .logo-intro { display: none; --intro-h: min(100svh, 44rem); --intro-bottom: 10.5rem; }
+  :global(.logo-intro-on) .logo-intro {
+    position: fixed;
+    inset: 0 0 auto;
+    height: var(--intro-h);
+    padding: 4.75rem 0 var(--intro-bottom);
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+  .logo-mark { position: relative; width: min(clamp(220px, 34vw, 420px), (var(--intro-h) - 4.75rem - var(--intro-bottom)) * 0.94); }
+  @media (max-width: 900px) {
+    .logo-intro { --intro-bottom: calc(clamp(48px, 8vw, 120px) + 1rem); }
+  }
+  /* Oculto hasta que arranca la animación: si no, se ve el logo completo un instante mientras carga el JS. */
+  .logo-mark :global(svg) { display: block; width: 100%; height: auto; overflow: visible; opacity: 0; }
+  .logo-mark img { position: absolute; inset: 0; width: 100%; height: auto; opacity: 0; }
   .brand-name { display: grid; font-weight: 600; font-size: 0.875rem; line-height: 1.2; letter-spacing: 0.01em; white-space: nowrap; }
   .brand-name strong { font-size: 1.375rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
 
