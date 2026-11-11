@@ -30,6 +30,9 @@ export const waLink = (phone: string, message: string, desktop = false) =>
     : `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
 // ID de la etiqueta de Google Ads (empieza con AW-). Mientras sea null, no se carga ninguna etiqueta.
-export const GOOGLE_ADS_ID: string | null = null;
+export const GOOGLE_ADS_ID: string | null = 'AW-18540295829';
+
+// Conversión "Contacto" de Google Ads: se dispara al cargar /gracias.
+export const GOOGLE_ADS_CONVERSION = 'AW-18540295829/RD59CMz_x6sdEJXt2YhF';
 
 export const defaultMessage = 'Hola, quería consultar por las clases de natación.';

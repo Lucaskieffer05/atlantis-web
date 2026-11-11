@@ -57,7 +57,7 @@ import logo from '../assets/logo-solid.png';
 </style>
 
 <script>
-  import { contacts, waLink, defaultMessage } from '../data/site';
+  import { contacts, waLink, defaultMessage, GOOGLE_ADS_CONVERSION } from '../data/site';
 
   const params = new URLSearchParams(location.search);
   const who = contacts.find((c) => c.name.toLowerCase() === params.get('a')) ?? contacts[0];
@@ -70,6 +70,10 @@ import logo from '../assets/logo-solid.png';
   open.href = url;
   open.querySelector('span')!.textContent = `Abrir WhatsApp de ${who.name}`;
 
-  // Un instante para que la etiqueta de Google registre la visita; después se abre WhatsApp.
-  setTimeout(() => location.replace(url), 1200);
+  // Se abre WhatsApp en cuanto Google Ads confirma la conversión; si la etiqueta no responde
+  // (bloqueador, conexión lenta), igual se abre a los 2 segundos.
+  let gone = false;
+  const go = () => { if (!gone) { gone = true; location.replace(url); } };
+  (window as any).gtag?.('event', 'conversion', { send_to: GOOGLE_ADS_CONVERSION, event_callback: go });
+  setTimeout(go, 2000);
 </script>
